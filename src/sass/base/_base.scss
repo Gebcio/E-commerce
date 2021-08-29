@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #f2f2f2;
+}
+
+body {
+  max-width: 144rem;
+  margin: auto;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
