@@ -38,7 +38,7 @@
     }
 
     @include respond(phone-land) {
-      flex-basis: 60%;
+      flex-basis: 50%;
       margin-bottom: 2.8rem;
     }
   }
@@ -46,6 +46,7 @@
 
 .login-link {
   margin-left: auto;
+  padding-left: 1.1rem;
 
   @include respond(tab-port) {
     margin-bottom: 2.8rem;

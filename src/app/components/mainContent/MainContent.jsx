@@ -18,8 +18,6 @@ export const MainContent = () => {
 
   const { items } = products;
 
-  //   console.log(items);
-
   const productCards = items.map((item) => (
     <ProductCard key={item.id} props={item} />
   ));

@@ -38,6 +38,11 @@
       color: $color-white;
       background-color: $color-grey-dark-1;
       border: 1px solid $color-grey-dark-1;
+      cursor: initial;
+    }
+
+    &:active {
+      transition: none;
     }
   }
 }

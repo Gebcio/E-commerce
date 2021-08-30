@@ -8,64 +8,95 @@ import {
   CardActions,
   makeStyles,
 } from "@material-ui/core";
+import { RatingElement } from "../ratingElement/RatingElement";
 import { ButtonElement } from "../buttonElement/ButtonElement";
-import filledStarIcon from "../../assets/filledStarIcon.svg";
 
 const useStyles = makeStyles({
   root: {
     width: 288,
-    maxHeight: 400,
+    height: 400,
     borderRadius: "8px",
     marginBottom: "2.4rem",
+    position: "relative",
+  },
+  promoLabel: {
+    alignItems: "center",
+    backgroundColor: "#F9A52B",
+    color: "#fff",
+    display: "flex",
+    height: "2.4rem",
+    fontFamily: "Nunito",
+    fontStyle: "normal",
+    fontWeight: 600,
+    fontSize: "1.4rem",
+    justifyContent: "center",
+    lineHeight: "1.6rem",
+    width: "7.5rem",
+    position: "absolute",
+    top: "2.7rem",
+    left: 0,
+    zIndex: 10,
+  },
+  content: {
+    padding: "1.6rem",
+  },
+  title: {
+    color: "#1A1B1D",
+    fontFamily: "Nunito",
+    fontStyle: "normal",
+    fontWeight: 600,
+    fontSize: "1.8rem",
+    lineHeight: "1.6rem",
+    marginBottom: ".8rem",
   },
   description: {
-    // marginBottom: "1rem",
+    color: "#9194A5",
+    height: "6.4rem",
+    fontFamily: "Nunito",
+    fontStyle: "normal",
+    fontWeight: 600,
+    fontSize: "1.4rem",
+    lineHeight: "1.6rem",
   },
-  pagination: {
-    maxWidth: 288,
+  button: {
+    padding: "0 1.6rem 2.4rem",
   },
 });
 
 export const ProductCard = (props) => {
   const classes = useStyles();
-  const { active, name, description, image, rating } = props.props;
+  const { active, description, image, name, promo, rating } = props.props;
 
   const isActive = active;
-  // const stars =
+  const isPromo = promo;
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          className={classes.media}
           component="img"
           alt={name}
           height="170"
           image={image}
           title={name}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography
-            className={classes.description}
-            variant="body2"
-            color="textSecondary"
-            component="p"
-          >
+        {isPromo ? (
+          <Typography className={classes.promoLabel}>Promo</Typography>
+        ) : (
+          <div></div>
+        )}
+
+        <CardContent className={classes.content}>
+          <Typography className={classes.title}>{name}</Typography>
+          <Typography className={classes.description} component="p">
             {description}
           </Typography>
 
-          <Typography className="rating">
-            <img src={filledStarIcon} alt="filled star icon" />
-            <img src={filledStarIcon} alt="filled star icon" />
-            <img src={filledStarIcon} alt="filled star icon" />
-            <img src={filledStarIcon} alt="filled star icon" />
-            <img src={filledStarIcon} alt="filled star icon" />
-          </Typography>
+          <RatingElement rating={rating} />
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.button}>
         {isActive ? (
           <ButtonElement name="Show details" type="details"></ButtonElement>
         ) : (
