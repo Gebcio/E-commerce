@@ -13,7 +13,7 @@ import { ButtonElement } from "../buttonElement/ButtonElement";
 
 const useStyles = makeStyles({
   root: {
-    width: 288,
+    maxWidth: 340,
     height: 400,
     borderRadius: "8px",
     marginBottom: "2.4rem",

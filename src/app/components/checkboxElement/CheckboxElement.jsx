@@ -3,6 +3,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import { useState } from "react";
 
 const useStyles = makeStyles({
   input: {
@@ -54,6 +55,11 @@ const useStyles = makeStyles({
 
 export const CheckboxElement = (props) => {
   const classes = useStyles();
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
 
   return (
     <FormControlLabel
@@ -68,6 +74,8 @@ export const CheckboxElement = (props) => {
             <span className={clsx(classes.icon, classes.checkedIcon)} />
           }
           icon={<span className={classes.icon} />}
+          checked={checked}
+          onChange={handleChange}
         />
       }
       label={<span className={classes.label}>{props.name}</span>}

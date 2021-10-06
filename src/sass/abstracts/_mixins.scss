@@ -7,13 +7,8 @@ $breakpoint argument choices::after
 - tab-land
 */
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone-port {
+  @if $breakpoint == phone {
     @media only screen and (max-width: 37.5em) {
-      @content;
-    }
-  }
-  @if $breakpoint == phone-land {
-    @media only screen and (max-width: 45.25em) {
       @content;
     }
   }

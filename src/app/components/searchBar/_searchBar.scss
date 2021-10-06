@@ -13,13 +13,11 @@
   @include respond(tab-port) {
     order: 1;
     margin-left: 0;
-  }
-
-  @include respond(phone-land) {
     min-width: 30rem;
+    min-width: max-content;
   }
 
-  @include respond(phone-port) {
+  @include respond(phone) {
     margin-bottom: 2.4rem;
     margin-right: 0;
     max-width: 60rem;

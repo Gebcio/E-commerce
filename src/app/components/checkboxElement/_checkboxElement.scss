@@ -9,11 +9,8 @@
       margin-right: 0;
     }
 
-    @include respond(phone-port) {
+    @include respond(phone) {
       margin-left: 0;
-    }
-
-    @include respond(phone-port) {
       width: 100%;
     }
   }
