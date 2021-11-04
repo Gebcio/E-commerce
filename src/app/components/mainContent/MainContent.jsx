@@ -1,12 +1,34 @@
 import React from "react";
 import { ProductCard } from "../productCard/ProductCard";
+// import { PaginationElement } from "../paginationElement/PaginationElement";
 
 export const MainContent = (props) => {
-  const { products } = props;
+  const {
+    products: { items },
+    // , meta
+    // page,
+    // onChange,
+  } = props;
 
-  const productCards = products.map((product) => (
+  // const handleChange = (value) => {
+  //   onChange(value);
+  // };
+
+  const productCards = items.map((product) => (
     <ProductCard key={product.id} props={product} />
   ));
 
-  return <div className="main-content">{productCards}</div>;
+  return (
+    <>
+      <div className="main-content">
+        {productCards}
+
+        {/* <PaginationElement
+          count={meta.totalPages}
+          page={page}
+          onChange={handleChange}
+        /> */}
+      </div>
+    </>
+  );
 };

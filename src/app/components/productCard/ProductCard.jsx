@@ -39,6 +39,10 @@ const useStyles = makeStyles({
   },
   content: {
     padding: "1.6rem",
+    height: "16.8rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   title: {
     color: "#1A1B1D",
@@ -47,7 +51,6 @@ const useStyles = makeStyles({
     fontWeight: 600,
     fontSize: "1.8rem",
     lineHeight: "1.6rem",
-    marginBottom: ".8rem",
   },
   description: {
     color: "#9194A5",
