@@ -18,9 +18,11 @@ const useStyles = makeStyles({
 export const ButtonElement = (props) => {
   const classes = useStyles();
 
+  const { name, type } = props;
+
   return (
-    <Button className={clsx(classes.button, `btn--${props.type}`)}>
-      {props.name}
+    <Button className={clsx(classes.button, `btn--${type}`)} type={type}>
+      {name}
     </Button>
   );
 };

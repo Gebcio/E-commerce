@@ -53,12 +53,12 @@ const useStyles = makeStyles({
 });
 
 export const CheckboxElement = (props) => {
-  const { name, checkboxState, onChange } = props;
+  const { name, checkboxState, onCheckboxChange } = props;
 
   const classes = useStyles();
 
   const handleChange = (event) => {
-    onChange(event.target.checked);
+    onCheckboxChange(event.target.checked);
   };
 
   return (

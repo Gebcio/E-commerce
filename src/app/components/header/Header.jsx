@@ -6,43 +6,36 @@ import { Link } from "react-router-dom";
 import { AppRoute } from "../../../routing/AppRoute.enum";
 
 export const Header = (props) => {
-  const { checkboxes, checkboxState, onChange } = props;
+  const { checkboxes, checkboxState, onCheckboxChange, onSearchBarChange } =
+    props;
 
   const handleCheckboxChange = (position) => {
     const updatedCheckedState = checkboxState.map((item, index) =>
       index === position ? !item : item
     );
-    onChange(updatedCheckedState);
+    onCheckboxChange(updatedCheckedState);
+  };
+
+  const handleSearchBarChange = (value) => {
+    onSearchBarChange(value);
   };
 
   return (
     <>
       <div className="header">
         <h1>join.tsh.io</h1>
-        <SearchBar />
+        <SearchBar onSearchBarChange={handleSearchBarChange} />
         <div className="checkbox__wrapper">
-          {
-            checkboxes.map((name, index) => {
-              return (
-                <CheckboxElement
-                  key={index}
-                  name={name}
-                  checkboxState={checkboxState[index]}
-                  onChange={() => handleCheckboxChange(index)}
-                />
-              );
-            })
-            /* {<CheckboxElement
-            name="active"
-            checkboxState={checkboxState[0]}
-            onChange={handleCheckboxChange}
-          />
-          <CheckboxElement
-            name="promo"
-            checkboxState={checkboxState[1]}
-            onChange={handleCheckboxChange}
-          /> */
-          }
+          {checkboxes.map((name, index) => {
+            return (
+              <CheckboxElement
+                key={index}
+                name={name}
+                checkboxState={checkboxState[index]}
+                onCheckboxChange={() => handleCheckboxChange(index)}
+              />
+            );
+          })}
         </div>
 
         <Link className="login-link" to={AppRoute.login}>

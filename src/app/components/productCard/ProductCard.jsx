@@ -68,7 +68,9 @@ const useStyles = makeStyles({
 
 export const ProductCard = (props) => {
   const classes = useStyles();
-  const { active, description, image, name, promo, rating } = props.props;
+  const {
+    product: { active, description, image, name, promo, rating },
+  } = props;
 
   const isActive = active;
   const isPromo = promo;
@@ -101,7 +103,9 @@ export const ProductCard = (props) => {
       </CardActionArea>
       <CardActions className={classes.button}>
         {isActive ? (
-          <ButtonElement name="Show details" type="details"></ButtonElement>
+          <>
+            <ButtonElement name="Show details" type="details"></ButtonElement>
+          </>
         ) : (
           <ButtonElement name="Unavailable" type="disabled"></ButtonElement>
         )}

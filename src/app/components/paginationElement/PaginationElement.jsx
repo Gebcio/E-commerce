@@ -50,7 +50,7 @@ export const PaginationElement = (props) => {
     showLastButton: true,
     hidePrevButton: true,
     hideNextButton: true,
-    boundaryCount: 3,
+    boundaryCount: 1,
     siblingCount: 1,
   });
 
@@ -62,6 +62,7 @@ export const PaginationElement = (props) => {
     <nav className={classes.nav}>
       <ul className={classes.ul}>
         {items.map(({ page, type, selected, onClick, ...item }, index) => {
+          // if (page === 4) return null;
           let children = null;
 
           if (type === "start-ellipsis" || type === "end-ellipsis") {
