@@ -1,15 +1,19 @@
 .MuiButton-root.btn {
+  border-radius: 0.4rem;
+  font: 600 normal 1.4rem/1.6rem Nunito;
+  height: 3.8rem;
+  text-transform: initial;
+
   &--login {
     background-color: $color-white;
     border: 1px solid $color-primary;
     color: $color-primary;
-    text-transform: initial;
     width: 8.8rem;
 
     &:hover {
-      color: $color-primary-dark;
       background-color: $color-white;
       border: 1px solid $color-primary-dark;
+      color: $color-primary-dark;
     }
   }
 
@@ -17,13 +21,12 @@
     background-color: $color-primary;
     border: 1px solid $color-primary;
     color: $color-white;
-    text-transform: initial;
     width: 100%;
 
     &:hover {
-      color: $color-white;
       background-color: $color-primary-dark;
       border: 1px solid $color-primary-dark;
+      color: $color-white;
     }
   }
 
@@ -31,13 +34,12 @@
     background-color: $color-grey-dark-1;
     border: 1px solid $color-grey-dark-1;
     color: $color-white;
-    text-transform: initial;
     width: 100%;
 
     &:hover {
-      color: $color-white;
       background-color: $color-grey-dark-1;
       border: 1px solid $color-grey-dark-1;
+      color: $color-white;
       cursor: initial;
     }
 

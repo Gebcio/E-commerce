@@ -9,16 +9,22 @@ import axios from "axios";
 
 export const Products = () => {
   const [isChecked, setIsChecked] = useState([false, false]);
+  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [products, setProducts] = useState(null);
+  const [pageLimit, setPageLimit] = useState(8);
+  const [products, setProducts] = useState({ items: [], meta: [] });
   const [searchTerm, setSearchTerm] = useState("");
 
+  const checkboxes = ["active", "promo"];
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-  const checkboxes = ["active", "promo"];
-
-  const pageLimit =
-    window.innerWidth <= 600 ? 4 : window.innerWidth <= 1200 ? 6 : 8;
+  window.addEventListener("resize", () => {
+    window.innerWidth <= 600
+      ? setPageLimit(4)
+      : window.innerWidth <= 1200
+      ? setPageLimit(6)
+      : setPageLimit(8);
+  });
 
   const handleCheckboxChange = (value) => {
     setIsChecked(value);
@@ -34,8 +40,6 @@ export const Products = () => {
   };
 
   useEffect(() => {
-    // TO DO finish debounce search
-
     axios
       .get(
         `https://join-tsh-api-staging.herokuapp.com/products?search=${debouncedSearchTerm}&limit=${pageLimit}&page=${page}&promo=${
@@ -44,8 +48,12 @@ export const Products = () => {
       )
       .then((response) => {
         setProducts(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        alert(`Something went wrong! ${error.message}`);
       });
-  }, [debouncedSearchTerm, isChecked, pageLimit, page]);
+  }, [debouncedSearchTerm, isChecked, pageLimit, page, isLoading]);
 
   if (!products) return null;
 
@@ -57,14 +65,15 @@ export const Products = () => {
         onCheckboxChange={handleCheckboxChange}
         onSearchBarChange={handleSearchBarChange}
       />
-      <MainContent products={products} />
+      <MainContent isLoading={isLoading} products={products.items} />
 
-      {/* handle display of products if less than page limit  - margins*/}
-      <PaginationElement
-        count={products.meta.totalPages}
-        page={page}
-        onChange={handlePageChange}
-      />
+      {!products.items.length ? null : (
+        <PaginationElement
+          count={products.meta.totalPages}
+          page={page}
+          onChange={handlePageChange}
+        />
+      )}
     </>
   );
 };

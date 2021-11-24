@@ -5,10 +5,12 @@ import { ButtonElement } from "../buttonElement/ButtonElement";
 import { Link } from "react-router-dom";
 import { AppRoute } from "../../../routing/AppRoute.enum";
 
-export const Header = (props) => {
-  const { checkboxes, checkboxState, onCheckboxChange, onSearchBarChange } =
-    props;
-
+export const Header = ({
+  checkboxes,
+  checkboxState,
+  onCheckboxChange,
+  onSearchBarChange,
+}) => {
   const handleCheckboxChange = (position) => {
     const updatedCheckedState = checkboxState.map((item, index) =>
       index === position ? !item : item

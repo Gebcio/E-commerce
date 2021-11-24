@@ -1,1 +1,47 @@
+.product-card {
+  border-radius: 0.8rem !important;
+  height: 40rem;
+  margin-bottom: 2.4rem;
+  max-width: 34rem;
+  position: relative;
 
+  & .MuiTypography-body1 {
+    font: 600 normal 1.4rem/ 1.6rem Nunito;
+  }
+
+  &__promo-label {
+    align-items: center;
+    background-color: #f9a52b;
+    color: $color-white;
+    display: flex;
+    height: 2.4rem;
+    justify-content: center;
+    position: absolute;
+    top: 2.7rem;
+    left: 0;
+    width: 7.5rem;
+    z-index: 10;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 16.8rem;
+    justify-content: space-between;
+    padding: 1.6rem;
+  }
+
+  &__title {
+    color: $color-grey-dark-2;
+    font-size: 1.8rem !important;
+  }
+
+  &__description {
+    color: $color-grey-dark-1;
+    height: 6.4rem;
+  }
+
+  &__button {
+    padding: 0 1.6rem 2.4rem !important;
+  }
+}

@@ -1,8 +1,13 @@
 @import "./components/header/header";
 
-@import "./components/searchBar/searchBar";
-@import "./components/checkboxElement/checkboxElement";
 @import "./components/buttonElement/buttonElement";
+@import "./components/checkboxElement/checkboxElement";
+@import "./components/searchBar/searchBar";
 
 @import "./components/mainContent/mainContent";
+
+@import "./components/loader/loader";
+@import "./components/modalElement/modalElement";
+@import "./components/paginationElement/paginationElement";
+@import "./components/productCard/productCard";
 @import "./components/ratingElement/ratingElement";

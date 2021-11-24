@@ -1,47 +1,8 @@
 import React from "react";
 import { usePagination } from "@material-ui/lab";
-import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  nav: {
-    backgroundColor: "#f8f8fa",
-    padding: "3.2rem 0 5.6rem",
-    display: "flex",
-    justifyContent: "center",
-  },
-
-  ul: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-    display: "flex",
-    justifyContent: "center",
-    "& > *": {
-      padding: ".8rem",
-      "&:first-child": {
-        paddingRight: "1.6rem",
-        "& button": {
-          textTransform: "capitalize",
-        },
-      },
-      "&:last-child": {
-        paddingLeft: "1.6rem",
-        "& button": {
-          textTransform: "capitalize",
-        },
-      },
-    },
-    "& button": {
-      backgroundColor: "transparent",
-      border: "none",
-    },
-  },
-});
-
-export const PaginationElement = (props) => {
-  const classes = useStyles();
-
-  const { count, page, onChange } = props;
+export const PaginationElement = ({ count, page, onChange }) => {
+  const siblingCount = count <= 6 ? 0 : 1;
 
   const { items } = usePagination({
     count: count,
@@ -50,8 +11,8 @@ export const PaginationElement = (props) => {
     showLastButton: true,
     hidePrevButton: true,
     hideNextButton: true,
-    boundaryCount: 1,
-    siblingCount: 1,
+    boundaryCount: 3,
+    siblingCount: siblingCount,
   });
 
   const handleChange = (page) => {
@@ -59,13 +20,12 @@ export const PaginationElement = (props) => {
   };
 
   return (
-    <nav className={classes.nav}>
-      <ul className={classes.ul}>
+    <nav className="pagination">
+      <ul className="pagination__items">
         {items.map(({ page, type, selected, onClick, ...item }, index) => {
-          // if (page === 4) return null;
           let children = null;
 
-          if (type === "start-ellipsis" || type === "end-ellipsis") {
+          if (type === "start-ellipsis") {
             children = "…";
           } else if (type === "page") {
             children = (

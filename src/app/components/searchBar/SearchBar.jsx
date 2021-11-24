@@ -1,12 +1,9 @@
 import React from "react";
 import searchIcon from "../../assets/searchIcon.svg";
 
-export const SearchBar = (props) => {
-  const { onSearchBarChange } = props;
-
-  const onChange = (e) => {
-    onSearchBarChange(e.target.value);
-    console.log(e.target.value);
+export const SearchBar = ({ onSearchBarChange }) => {
+  const onChange = (event) => {
+    onSearchBarChange(event.target.value);
   };
 
   return (

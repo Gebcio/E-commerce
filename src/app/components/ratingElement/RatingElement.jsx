@@ -2,8 +2,7 @@ import React from "react";
 import filledStarIcon from "../../assets/filledStarIcon.svg";
 import emptyStarIcon from "../../assets/emptyStarIcon.svg";
 
-export const RatingElement = (props) => {
-  const { rating } = props;
+export const RatingElement = ({ rating }) => {
   const TOP_RATING = 5;
   const score = [];
 
