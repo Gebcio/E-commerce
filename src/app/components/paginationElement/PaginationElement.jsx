@@ -2,8 +2,6 @@ import React from "react";
 import { usePagination } from "@material-ui/lab";
 
 export const PaginationElement = ({ count, page, onChange }) => {
-  const siblingCount = count <= 6 ? 0 : 1;
-
   const { items } = usePagination({
     count: count,
     page: page,
@@ -12,7 +10,7 @@ export const PaginationElement = ({ count, page, onChange }) => {
     hidePrevButton: true,
     hideNextButton: true,
     boundaryCount: 3,
-    siblingCount: siblingCount,
+    siblingCount: 1,
   });
 
   const handleChange = (page) => {

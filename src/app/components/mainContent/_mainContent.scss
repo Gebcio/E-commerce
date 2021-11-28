@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5.6rem 10rem 0;
-  // min-height: 90rem;
 
   @include respond(tab-land) {
     padding: 5.6rem 5rem 0;
@@ -41,7 +40,7 @@
     border-radius: 0.8rem;
     display: flex;
     flex-direction: column;
-    font: 600 normal 1.8rem/1.6rem Nunito;
+    font: inherit;
     height: 34.4rem;
     justify-content: center;
     margin: 5.6rem auto 48rem;
@@ -50,13 +49,13 @@
     & h2 {
       color: $color-grey-dark-2;
       font: inherit;
+      font-size: 1.8rem;
       margin-top: 2.4rem;
     }
 
     & p {
       color: $color-grey-dark-1;
       font: inherit;
-      font-size: 1.4rem;
       margin-top: 0.8rem;
     }
   }

@@ -1,28 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import { AppRoute } from '../../routing/AppRoute.enum';
+import React from "react";
+import loginImage from "../assets/loginImage.svg";
+import { Link } from "react-router-dom";
+import { AppRoute } from "../../routing/AppRoute.enum";
+import { ButtonElement } from "../components/buttonElement/ButtonElement";
 
 export const Login = () => {
   return (
-    <>
-      <Link to={AppRoute.home}>Products page</Link>
-      <h2>Login</h2>
-      <form>
-        <div>
-          <label>
-            username:
-            <input name="username" />
-          </label>
-        </div>
-        <div>
-          <label>
-            password:
-            <input name="password" type="password" />
-          </label>
-        </div>
-        <button type="submit">submit</button>
-      </form>
-    </>
+    <div className="login-page">
+      <img src={loginImage} alt="login image" width="604px" />
+
+      <div className="login-page__text">
+        <h1>
+          <Link to={AppRoute.home}>join.tsh.io</Link>
+        </h1>
+        <h2>Login</h2>
+        <form>
+          <div>
+            <label>
+              Username
+              <input name="username" placeholder="Enter username" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Password
+              <input
+                name="password"
+                type="password"
+                placeholder="Enter password"
+              />
+            </label>
+          </div>
+          <ButtonElement name="Log in" type="contained" />
+          <a href="#">Forgot password?</a>
+        </form>
+      </div>
+    </div>
   );
 };

@@ -1,0 +1,86 @@
+.login-page {
+  background-color: $color-white;
+  display: flex;
+  height: 102.4rem;
+
+  @include respond(tab-land) {
+    height: 81.2rem;
+    justify-content: center;
+  }
+
+  & img {
+    height: auto;
+    max-width: 42%;
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    font: inherit;
+    margin: 2.8rem 18.8rem 30.2rem 10.2rem;
+    padding: 2.4rem;
+    width: 54.4rem;
+
+    @include respond(tab-land) {
+      margin: 2.8rem auto 10.2rem;
+    }
+
+    & h1 {
+      font-size: 2.4rem;
+      line-height: 4rem;
+      margin-bottom: 23.5rem;
+
+      @include respond(tab-land) {
+        margin-bottom: 10.3rem;
+      }
+
+      & a {
+        color: $color-grey-dark-2;
+        text-decoration: none;
+      }
+    }
+
+    & h2 {
+      font-size: 3rem;
+      line-height: 4rem;
+      margin-bottom: 2.9rem;
+    }
+
+    & form {
+      display: flex;
+      flex-direction: column;
+
+      & label {
+        display: flex;
+        font: inherit;
+        flex-direction: column;
+        margin-bottom: 2.2rem;
+        & input {
+          background: $color-white;
+          border: 1px solid $color-grey-light-2;
+          border-radius: 0.8rem;
+          font: inherit;
+          height: 4.8rem;
+          margin-top: 0.8rem;
+          padding: 1.6rem;
+
+          &::placeholder {
+            color: $color-grey-dark-1;
+          }
+        }
+      }
+
+      & button {
+        margin: 3.4rem auto 1.6rem;
+        height: 4.8rem !important;
+      }
+
+      & a {
+        color: $color-grey-dark-1;
+      }
+    }
+  }
+}

@@ -24,35 +24,33 @@ export const ProductCard = ({
 
   return (
     <Card className="product-card">
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={name}
-          height="170"
-          image={image}
-          title={name}
-        />
-        {isPromo ? (
-          <Typography className="product-card__promo-label">Promo</Typography>
-        ) : (
-          <></>
-        )}
+      <CardMedia
+        component="img"
+        alt={name}
+        height="170"
+        image={image}
+        title={name}
+      />
+      {isPromo ? (
+        <Typography className="product-card__promo-label">Promo</Typography>
+      ) : (
+        <></>
+      )}
 
-        <CardContent className="product-card__content">
-          <Typography className="product-card__title">{name}</Typography>
-          <Typography className="product-card__description" component="p">
-            {description}
-          </Typography>
+      <CardContent className="product-card__content">
+        <Typography className="product-card__title">{name}</Typography>
+        <Typography className="product-card__description" component="p">
+          {description}
+        </Typography>
 
-          <RatingElement rating={rating} />
-        </CardContent>
-      </CardActionArea>
+        <RatingElement rating={rating} />
+      </CardContent>
       <CardActions className="product-card__button">
         {isActive ? (
           <>
             <ButtonElement
               name="Show details"
-              type="details"
+              type="contained"
               onMouseUp={handleOpen}
             ></ButtonElement>
             <ModalElement

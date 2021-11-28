@@ -11,7 +11,7 @@ export const ButtonElement = ({ name, type, onMouseUp }) => {
     <Button
       className={clsx("btn", `btn--${type}`)}
       type={type}
-      onMouseUp={type === "disabled" ? null : handleOnMouseUp}
+      onMouseUp={name === "Show details" ? handleOnMouseUp : null}
     >
       {name}
     </Button>

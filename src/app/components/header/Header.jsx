@@ -41,7 +41,7 @@ export const Header = ({
         </div>
 
         <Link className="login-link" to={AppRoute.login}>
-          <ButtonElement name="Log in" type="login" />
+          <ButtonElement name="Log in" type="outlined" />
         </Link>
       </div>
     </>

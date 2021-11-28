@@ -1,10 +1,11 @@
 .MuiButton-root.btn {
   border-radius: 0.4rem;
-  font: 600 normal 1.4rem/1.6rem Nunito;
+  font: inherit;
+
   height: 3.8rem;
   text-transform: initial;
 
-  &--login {
+  &--outlined {
     background-color: $color-white;
     border: 1px solid $color-primary;
     color: $color-primary;
@@ -17,7 +18,7 @@
     }
   }
 
-  &--details {
+  &--contained {
     background-color: $color-primary;
     border: 1px solid $color-primary;
     color: $color-white;
